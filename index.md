@@ -40,7 +40,35 @@ Given a k-mer, we can concatenate its backward extension and the first k-1 bases
 
 Algorithm 1 illustrates the serial de Bruijn graph construction and traversal procedure. First, we store the input k-mers and their corresponding extensions in the hash table. If the backward extension of a k-mer is F, we append that k-mer in a `startNodesList` since we know that this is a start node in the de Bruijn graph and we can use this vertex as a traversal seed.
 
-![Algorithm 1](media/algo.png)
+Algorithm 1: De Bruijn Graph Construction And Traversal
+
+```lua
+Input: A set of k-mers and their corresponding forward and backward extensions
+Output: A set of contigs
+/* Initialization */
+hashTable<-CREATEHASHTABLE( )
+startNodesList<-CREATEEMPTYLIST( )
+
+/* De Bruijn Graph Construction */
+for each (k-mer, forwardExt, backwardExt) in input do
+    ADDKMERTOHASHTABLE(hashTable, (k-mer, forwardExt, backwardExt))
+    if (backwardExt is F) then
+        ADDKMERTOLIST(startNodesList, (k-mer, forwardExt))
+    end if
+end for
+
+/* De Bruijn Graph Traversal */
+for each (k-mer, forwardExt) in startNodesList do
+    currentContig<-CREATENEWSEQUENCE(k-mer)
+    currentForwardExtension<-forwardExt
+    while (currentForwardExtension is not F) do
+    ADDBASETOSEQUENCE(currentForwardExtension, currentContig)
+    currentKmer<-LASTKBASES(currentContig)
+    currentForwardExtension<-LOOKUP(hashTable, currentKmer)
+    end while
+    STORECONTIG(currentContig)
+end for
+```
 
 After storing the input in the hash table, we iterate over the `startNodesList` and we pick traversal seeds. Given a traversal seed, we initialize a new contig sequence with that seed (k-mer) content. Then we expand the current contig sequence by iteratively adding one base at a time. Specifically, by taking the last k bases of the contig we form a new k-mer and we look it up in the hash table. As a result of this look up we get a new forward extension and we append it at the end of the current contig. We terminate the current traversal (and the current contig) when we encounter a forward extension that is *F* -- we know that we found the other start node of this connected component. The graph traversal is completed when all the connected components have been discovered or equivalently when all the start nodes from the `startNodesList` have been exhausted.
 
