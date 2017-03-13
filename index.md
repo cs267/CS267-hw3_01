@@ -1,5 +1,7 @@
 [Source](https://sites.google.com/a/lbl.gov/cs267-spring-2017/home/homework-3 "Permalink to Homework 3 - CS267 Spring 2017")
 
+You can find different versions of this document in [HTML](https://cs267.github.io/hw3/) or [PDF](https://cs267.github.io/hw3/index.pdf).
+
 # CS267 Assignment 3: Parallelize Graph Algorithms for de Novo Genome Assembly
 
 **Due date (Berkeley students)**: We will release this assignment on bCourses shortly after the lecture on Partitioned Global Address Space programming in UPC, but do not panic, it will not be due until March 24th, 2017. Stay tuned for updates via Piazza CS267 Spring '17.
