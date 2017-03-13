@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <meta name="dcterms.date" content="2017-03-12">
+  <meta name="dcterms.date" content="2017-03-13">
   <title></title>
   <style type="text/css">code{white-space: pre;}</style>
   <style type="text/css">
@@ -179,22 +179,19 @@ startNodesList<span class="ot">&lt;-</span>CREATEEMPTYLIST<span class="ot">(</sp
 </ul>
 <p>Your submission should be a single <code>name1_name2_name3_hw3.tar.gz</code> that, when unzipped, gives us a folder named <code>name1_name2_name3_hw3</code>. In this folder there should be the source files, a report file named <code>report.pdf</code>, a text file named <code>members.txt</code> containing your teammate’s names, one line for each member, and a bash script named <code>init.sh</code> containing commmands to initialize your preferred programming environment.</p>
 <p>Example:</p>
-<pre><code>    Marquita_Jenny_hw3 (a folder)
-      |--source files 
-      |--Makefile with make target pgen
-      |--report.pdf
-      |--members.txt
-      |--init.sh
-        </code></pre>
+<pre><code>Marquita_Jenny_hw3 (a folder)
+  |--source files 
+  |--Makefile with make target pgen
+  |--report.pdf
+  |--members.txt
+  |--init.sh</code></pre>
 <p>Example <code>members.txt</code>:</p>
-<pre><code>    Marquita Ellis
-    Jenny Huang
-        </code></pre>
+<pre><code>Marquita Ellis
+Jenny Huang</code></pre>
 <p>Example <code>init.sh</code> for Berkeley UPC (with GNU programming environment):</p>
-<pre><code>    #!/bin/bash
-    module swap PrgEnv-intel PrgEnv-gnu
-    module load bupc
-        </code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#!/bin/bash</span>
+<span class="ex">module</span> swap PrgEnv-intel PrgEnv-gnu
+<span class="ex">module</span> load bupc</code></pre></div>
 <p>If, for some reason, you need to configure some environment variables, feel free to do so in your <code>init.sh</code>. Note that your scripts are subject to check.</p>
 <h3 id="bonus"><span class="header-section-number">1.2.4</span> Bonus</h3>
 <ul>

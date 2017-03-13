@@ -157,26 +157,29 @@ Your submission should be a single `name1_name2_name3_hw3.tar.gz` that, when unz
 
 Example:
 
-        Marquita_Jenny_hw3 (a folder)
-          |--source files 
-          |--Makefile with make target pgen
-          |--report.pdf
-          |--members.txt
-          |--init.sh
-            
+```
+Marquita_Jenny_hw3 (a folder)
+  |--source files 
+  |--Makefile with make target pgen
+  |--report.pdf
+  |--members.txt
+  |--init.sh
+```
 
 Example `members.txt`:
 
-        Marquita Ellis
-        Jenny Huang
-            
+```
+Marquita Ellis
+Jenny Huang
+```
 
 Example `init.sh` for Berkeley UPC (with GNU programming environment):
 
-        #!/bin/bash
-        module swap PrgEnv-intel PrgEnv-gnu
-        module load bupc
-            
+```bash
+#!/bin/bash
+module swap PrgEnv-intel PrgEnv-gnu
+module load bupc
+```
 
 If, for some reason, you need to configure some environment variables, feel free to do so in your `init.sh`. Note that your scripts are subject to check.
 
