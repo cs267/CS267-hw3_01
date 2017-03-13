@@ -1,6 +1,6 @@
 [Source](https://sites.google.com/a/lbl.gov/cs267-spring-2017/home/homework-3 "Permalink to Homework 3 - CS267 Spring 2017")
 
-You can find different versions of this document in [HTML](https://cs267.github.io/hw3/) or [PDF](https://cs267.github.io/hw3/index.pdf).
+You can find different versions of this document in [HTML](https://cs267.github.io/hw3/), [PDF](https://cs267.github.io/hw3/index.pdf), or [GitHub](https://github.com/cs267/hw3).
 
 # CS267 Assignment 3: Parallelize Graph Algorithms for de Novo Genome Assembly
 
