@@ -26,8 +26,8 @@ pandocArgFragment := $(pandocArgCommon)
 ### pandoc workflow
 pandocArgStandalone := $(pandocArgFragment) --toc-depth=6 -s -N
 ## HTML/ePub
-pandocArgHTML := $(pandocArgFragment) -t $(HTMLVersion) --toc-depth=2 -s -N --mathjax -c $(CSSURL)/css/common.css -c $(CSSURL)/fonts/fonts.css
-# pandocArgePub := $(pandocArgFragment) --toc-depth=2 -s -N --mathjax -c $(CSSURL)/css/common.css -c $(CSSURL)/fonts/fonts.css -t $(ePubVersion) --epub-chapter-level=2 --self-contained
+pandocArgHTML := $(pandocArgFragment) -t $(HTMLVersion) --toc-depth=6 -s -N --mathjax -c $(CSSURL)/css/common.css -c $(CSSURL)/fonts/fonts.css
+# pandocArgePub := $(pandocArgFragment) --toc-depth=6 -s -N --mathjax -c $(CSSURL)/css/common.css -c $(CSSURL)/fonts/fonts.css -t $(ePubVersion) --epub-chapter-level=2 --self-contained
 # GitHub README
 pandocArgReadmeGitHub := $(pandocArgCommon) --toc-depth=6 -s -t markdown_github --reference-location=block
 
