@@ -24,12 +24,12 @@ pandocArgCommon := -f markdown+autolink_bare_uris-fancy_lists --toc --normalize 
 latexmkArg := -$(latexmkEngine)
 pandocArgFragment := $(pandocArgCommon)
 ### pandoc workflow
-pandocArgStandalone := $(pandocArgFragment) --toc-depth=2 -s -N
+pandocArgStandalone := $(pandocArgFragment) --toc-depth=6 -s -N
 ## HTML/ePub
 pandocArgHTML := $(pandocArgFragment) -t $(HTMLVersion) --toc-depth=2 -s -N --mathjax -c $(CSSURL)/css/common.css -c $(CSSURL)/fonts/fonts.css
 # pandocArgePub := $(pandocArgFragment) --toc-depth=2 -s -N --mathjax -c $(CSSURL)/css/common.css -c $(CSSURL)/fonts/fonts.css -t $(ePubVersion) --epub-chapter-level=2 --self-contained
 # GitHub README
-pandocArgReadmeGitHub := $(pandocArgCommon) --toc-depth=2 -s -t markdown_github --reference-location=block
+pandocArgReadmeGitHub := $(pandocArgCommon) --toc-depth=6 -s -t markdown_github --reference-location=block
 
 ####################################################################################################################################
 
