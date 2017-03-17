@@ -119,7 +119,7 @@ Feel free to output up to **p** files when running on **p** processors (you are 
 
 :   a zipped test input file (small). Unzip before running...
 
-You can find the **large input fileon Edison** at `/project/projectdirs/mp309/cs267/largeinput`.
+You can find the [**large input file here**](https://github.com/cs267/hw3/releases/download/v0.1/largeinput.xz).
 
 **IMPORTANT**: The large input has 51-mers instead of 19-mers in the small test input file.
 
