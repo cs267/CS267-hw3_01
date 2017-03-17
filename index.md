@@ -12,7 +12,7 @@ Here is some background on de novo genome DNA assembly (though strictly speaking
 
 Unfortunately we can not read the whole DNA strand in one go and therefore researchers have come up with alternative methods. One such method is called *shotgun sequencing*. In this method, many copies of the original DNA strand are made. Each copy is then fragmented randomly into pieces. We cannot control how the copies are fragmented; they are randomly split into short contiguous fragments. Next, we read each small fragment and each result is called *"short read"*. Finally, we use all the short reads to reconstruct the original DNA strand. Figure 1 shows the process.
 
-![Shotgun sequencing^[source: <http://people.mpi-inf.mpg.de/~sven/images/assembly.png>]](media/assembly.png)
+![Shotgun sequencing^[source: <http://people.mpi-inf.mpg.de/~sven/images/assembly.png>]](media/assembly.png){width=40%}
 
 Typically the short reads we get from shotgun sequencing are significantly shorter than the actual DNA strand they came from and this imposes a first challenge. A second challenge stems from the fact that the short reads include sequencing errors (with some error rate) and this makes the de novo genome assembly even harder. There are methods to preprocess the short reads and implicitly exclude the errors. These methods are outside of the scope of this homework assignment and we refer the interested reader to [@Chapman:2011kc].
 
@@ -20,7 +20,7 @@ The outcome of this preprocessing are *unique* sequence fragments of length k, h
 
 More specifically, in this de Bruijn graph of k-mers the vertices are the actual k-mers and two vertices are connected with an edge if the corresponding k-mers overlap in k-1 bases. Each vertex in the de Bruijn graph is guaranteed to have at most two neighbors. Additionally, each vertex in the de Bruijn graph is unique since the k-mers are unique. An example of such a de Bruijn graph is shown in Figure 2 where we illustrate a graph with k = 3. In this particular graph, nodes ATC and TCT are connected with an edge because they overlap in 2 bases (TC).
 
-![A de Bruijn graph with k = 3. We can identify three connected components (contigs) and six start nodes: GAT, TGA, AAT, TGC, AAC, CCG.](media/dbg.png)
+![A de Bruijn graph with k = 3. We can identify three connected components (contigs) and six start nodes: GAT, TGA, AAT, TGC, AAC, CCG.](media/dbg.png){width=85%}
 
 The contigs that are represented in this graph via connected components are: GATCTGA, AACCG and AATGC.
 
@@ -32,7 +32,7 @@ The **input** of the problem is a set of unique k-mers and their corresponding f
 
 In this assignment we will be using a hash table [@wiki:hash] with separate chaining for collisions to store efficiently the underlying de Bruijn graph. In particular, a key in the hash table represents a node in the de Bruijn graph and its value is a two-letter code that implicitly stores its adjacent vertices (or equivalently the incident edges) efficiently. Figure 3 shows the de Bruijn graph of Figure 2 stored in a hash table. Note that each entry in the hash table includes a k-mer (key) and its corresponding forward and backward extensions.
 
-![The de Bruijn graph of Figure 2 stored in a hash table with separate chaining for resolving collisions in the buckets.](media/hash.png)
+![The de Bruijn graph of Figure 2 stored in a hash table with separate chaining for resolving collisions in the buckets.](media/hash.png){width=80%}
 
 Given a k-mer, we can concatenate its backward extension and the first k-1 bases of the k-mer and we get the preceding vertex (k-mer) in the graph. Similarly, if we concatenate the last k-1 bases of the k-mer and its forward extension we get the following vertex in the graph. For example, in the graph of Figure 2, node `TCT` is stored in the hash table with key `TCT` and its forward extension is G while the backward extension is A, meaning that `CTG` is the following vertex and `ATC` is the preceding vertex. Also, we emphasize that the de Bruijn graph is undirected and therefore we can visit a vertex both from the following node and from the preceding node.
 
