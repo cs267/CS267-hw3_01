@@ -160,7 +160,7 @@ startNodesList<span class="ot">&lt;-</span>CREATEEMPTYLIST<span class="ot">(</sp
 <dd><p>a zipped test input file (small). Unzip before running…</p>
 </dd>
 </dl>
-<p>You can find the <strong>large input fileon Edison</strong> at <code>/project/projectdirs/mp309/cs267/largeinput</code>.</p>
+<p>You can find the <a href="https://github.com/cs267/hw3/releases/download/v0.1/largeinput.xz"><strong>large input file here</strong></a>.</p>
 <p><strong>IMPORTANT</strong>: The large input has 51-mers instead of 19-mers in the small test input file.</p>
 <p><strong>You must change</strong> the line <code>KMER_LENGTH = 19</code>in Makefile to <code>KMER_LENGTH = 51</code> and recompile your code before running it. (And vice versa if you want to run the small test input file again.)</p>
 <p>Further, the large input file should be put in your <code>$SCRATCH</code>folder for faster input read. Also configure <code>$SCRATCH</code>’s striping parameter for even better read performance. (Even though it’s only necessary for files larger than 1GB according to <a href="https://www.nersc.gov/users/storage-and-file-systems/optimizing-io-performance-for-lustre/">NERSC’s guide</a>.) I.e. on top of using <code>$SCRATCH</code>, you might also want to use multiple OSTs to increase parallel I/O performance. In order to do so:</p>
