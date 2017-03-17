@@ -62,9 +62,9 @@ for each (k-mer, forwardExt) in startNodesList do
     currentContig<-CREATENEWSEQUENCE(k-mer)
     currentForwardExtension<-forwardExt
     while (currentForwardExtension is not F) do
-    ADDBASETOSEQUENCE(currentForwardExtension, currentContig)
-    currentKmer<-LASTKBASES(currentContig)
-    currentForwardExtension<-LOOKUP(hashTable, currentKmer)
+        ADDBASETOSEQUENCE(currentForwardExtension, currentContig)
+        currentKmer<-LASTKBASES(currentContig)
+        currentForwardExtension<-LOOKUP(hashTable, currentKmer)
     end while
     STORECONTIG(currentContig)
 end for
