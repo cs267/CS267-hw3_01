@@ -57,7 +57,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="#overview"><span class="toc-section-number">1.1</span> Overview</a><ul>
 <li><a href="#problem-statement"><span class="toc-section-number">1.1.1</span> Problem Statement</a></li>
 <li><a href="#serial-algorithm"><span class="toc-section-number">1.1.2</span> Serial Algorithm</a></li>
-<li><a href="#remote-xsedemoodlestudents-please-read"><span class="toc-section-number">1.1.3</span> Remote <strong>XSEDE/Moodle</strong>Students, Please Read</a></li>
+<li><a href="#remote-xsedemoodle-students-please-read"><span class="toc-section-number">1.1.3</span> Remote XSEDE/Moodle Students, Please Read</a></li>
 </ul></li>
 <li><a href="#assignment"><span class="toc-section-number">1.2</span> Assignment</a><ul>
 <li><a href="#source-code"><span class="toc-section-number">1.2.1</span> Source Code</a></li>
@@ -117,14 +117,14 @@ startNodesList<span class="ot">&lt;-</span>CREATEEMPTYLIST<span class="ot">(</sp
     currentContig<span class="ot">&lt;-</span>CREATENEWSEQUENCE<span class="ot">(</span>k<span class="ot">-</span>mer<span class="ot">)</span>
     currentForwardExtension<span class="ot">&lt;-</span>forwardExt
     <span class="kw">while</span> <span class="ot">(</span>currentForwardExtension is <span class="kw">not</span> F<span class="ot">)</span> <span class="kw">do</span>
-    ADDBASETOSEQUENCE<span class="ot">(</span>currentForwardExtension<span class="ot">,</span> currentContig<span class="ot">)</span>
-    currentKmer<span class="ot">&lt;-</span>LASTKBASES<span class="ot">(</span>currentContig<span class="ot">)</span>
-    currentForwardExtension<span class="ot">&lt;-</span>LOOKUP<span class="ot">(</span>hashTable<span class="ot">,</span> currentKmer<span class="ot">)</span>
+        ADDBASETOSEQUENCE<span class="ot">(</span>currentForwardExtension<span class="ot">,</span> currentContig<span class="ot">)</span>
+        currentKmer<span class="ot">&lt;-</span>LASTKBASES<span class="ot">(</span>currentContig<span class="ot">)</span>
+        currentForwardExtension<span class="ot">&lt;-</span>LOOKUP<span class="ot">(</span>hashTable<span class="ot">,</span> currentKmer<span class="ot">)</span>
     <span class="kw">end</span> <span class="kw">while</span>
     STORECONTIG<span class="ot">(</span>currentContig<span class="ot">)</span>
 <span class="kw">end</span> <span class="kw">for</span></code></pre></div>
 <p>After storing the input in the hash table, we iterate over the <code>startNodesList</code> and we pick traversal seeds. Given a traversal seed, we initialize a new contig sequence with that seed (k-mer) content. Then we expand the current contig sequence by iteratively adding one base at a time. Specifically, by taking the last k bases of the contig we form a new k-mer and we look it up in the hash table. As a result of this look up we get a new forward extension and we append it at the end of the current contig. We terminate the current traversal (and the current contig) when we encounter a forward extension that is <em>F</em> – we know that we found the other start node of this connected component. The graph traversal is completed when all the connected components have been discovered or equivalently when all the start nodes from the <code>startNodesList</code> have been exhausted.</p>
-<h3 id="remote-xsedemoodlestudents-please-read"><span class="header-section-number">1.1.3</span> Remote <strong>XSEDE/Moodle</strong>Students, Please Read</h3>
+<h3 id="remote-xsedemoodle-students-please-read"><span class="header-section-number">1.1.3</span> Remote XSEDE/Moodle Students, Please Read</h3>
 <p>Dear Remote Students, we are thrilled to be a part of your parallel computing learning experience and to share these resources with you! To avoid confusion, please note that the assignment instructions, deadlines, and other assignment details posted here were designed for the local students. You should check with your local instruction team about submission, deadlines, job-running details, etc. and utilize Moodle for questions. With that in mind, the problem statement, source code, and references should still help you get started (just beware of institution-specific instructions). Best of luck and we hope you enjoy the assignment!</p>
 <h2 id="assignment"><span class="header-section-number">1.2</span> Assignment</h2>
 <p>For this assignment you are asked to parallelize the de Bruijn graph construction and traversal algorithm by using the Unified Parallel C (UPC) programming language. You can assume that the number of connected components in the de Bruijn graph is orders of magnitude larger that the number of processors. We will examine the strong scaling efficiency of your code in two scenarios:</p>
