@@ -132,7 +132,7 @@ Further, the large input file should be put in your `$SCRATCH `folder for faster
 -   `lfs setstripe my_stripped_folder -c 72 -s 8M`
 -   copy the input data to the `my_stripped_folder`
 
-You may want to play around with the -c and -s parameters. Also, for lower concurrencies striping might hurt performance. More information on this [link](https://www.nersc.gov/users/storage-and-file-systems/optimizing-io-performance-for-lustre/). You might check if there's any other filesystem that's faster than reading from your home folder, and the appropriate setting for it.
+You may want to play around with the `-c` and `-s` parameters. Also, for lower concurrencies striping might hurt performance. More information on this [link](https://www.nersc.gov/users/storage-and-file-systems/optimizing-io-performance-for-lustre/). You might check if there's any other filesystem that's faster than reading from your home folder, and the appropriate setting for it.
 
 ### Teams
 
